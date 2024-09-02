@@ -36,6 +36,10 @@ import {
 } from "@/components/ui/select";
 import { UserRole } from "@prisma/client";
 import { Switch } from "@/components/ui/switch";
+
+import { IoExitOutline } from "react-icons/io5";
+import { LogoutButton } from "@/components/auth/logout-button";
+
 const SettingsPage = () => {
   const user = useCurrentUser();
   const [error, setError] = useState<string | undefined>();
@@ -72,9 +76,9 @@ const SettingsPage = () => {
     });
   };
   return (
-    <Card className=" w-[600px]">
+    <Card className=" w-full h-full">
       <CardHeader>
-        <p className=" text-2xl font-semibold text-center">Settings</p>
+        <p className=" text-2xl font-semibold text-center">Profile</p>
       </CardHeader>
       <CardContent>
         <Form {...form}>
@@ -155,7 +159,7 @@ const SettingsPage = () => {
                     )}
                   />
 
-                  <FormField
+                  {/* <FormField
                     control={form.control}
                     name="isTwoFactorEnabled"
                     render={({ field }) => (
@@ -176,35 +180,26 @@ const SettingsPage = () => {
                         <FormMessage />
                       </FormItem>
                     )}
-                  />
+                  /> */}
                 </>
               )}
 
-              <FormField
-                control={form.control}
-                name="role"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Role</FormLabel>
-                    <Select
-                      disabled={isPending}
-                      onValueChange={field.onChange}
-                      defaultValue={field.value}
-                    >
-                      <FormControl>
-                        <SelectTrigger>
-                          <SelectValue placeholder="Select a role" />
-                        </SelectTrigger>
-                      </FormControl>
-                      <SelectContent>
-                        <SelectItem value={UserRole.ADMIN}>Admin</SelectItem>
-                        <SelectItem value={UserRole.USER}>User</SelectItem>
-                      </SelectContent>
-                    </Select>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
+
+              <div className=" flex flex-row items-center justify-between rounded-lg border p-3 shadow-sm">
+                <p className=" text-sm font-medium">Role</p>
+                <p className=" truncate text-xs max-w-fit font-mono bg-slate-100 rounded-sm p-1">
+                  {user?.role}
+                </p>
+              </div>
+              <div className=" flex flex-row items-center justify-between rounded-lg border p-3 shadow-sm">
+                <p className=" text-sm font-medium">Logout</p>
+                <p className=" cursor-pointer truncate text-xs max-w-fit font-mono bg-slate-100 rounded-sm p-1">
+                  <LogoutButton>
+                    Logout
+                  </LogoutButton>
+                </p>
+              </div>
+              {/* <FormMessage /> */}
             </div>
             {success && <FormSuccess message={success} />}
             {error && <FromError message={error} />}

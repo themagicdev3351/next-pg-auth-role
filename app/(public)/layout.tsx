@@ -3,7 +3,7 @@ import Navbar from "./_components/navbar";
 interface ProtectedLayoutProps {
   children: React.ReactNode;
 }
-const ProtectedLayout = ({ children }: ProtectedLayoutProps) => {
+const PublicedLayout = ({ children }: ProtectedLayoutProps) => {
   return (
     <div className=" bg-gradient h-full w-full flex flex-col gap-y-10 items-center justify-center">
       {/* <Navbar /> */}
@@ -12,4 +12,4 @@ const ProtectedLayout = ({ children }: ProtectedLayoutProps) => {
   );
 };
 
-export default ProtectedLayout;
+export default PublicedLayout;

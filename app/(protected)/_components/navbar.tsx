@@ -1,5 +1,7 @@
 "use client";
 
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { FaUser } from "react-icons/fa6";
 import { UserButton } from "@/components/auth/user-button";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
@@ -8,11 +10,17 @@ import { usePathname } from "next/navigation";
 const Navbar = () => {
   const pathname = usePathname();
   return (
-    <nav className="bg-secondary flex justify-between items-center p-4 top-0 left-0 right-0 fixed w-100 shadow-sm">
-      <div>  
-        <Link href="/">Server</Link>
-      </div>
-      <div className=" flex gap-x-3">
+    <nav className="bg-black flex justify-between items-center p-4 top-0 left-0 right-0 fixed w-100 shadow-sm">
+
+      <div className=" flex justify-between items-center gap-x-3 w-[100%]">
+        <Link href="/settings">
+          <Avatar>
+            <AvatarImage />
+            <AvatarFallback className="bg-gradient">
+              <FaUser className="text-white" />
+            </AvatarFallback>
+          </Avatar>
+        </Link>
         <Button
           variant={pathname === "/server" ? "default" : "outline"}
           asChild
