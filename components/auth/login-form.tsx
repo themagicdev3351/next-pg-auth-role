@@ -62,7 +62,10 @@ export const LoginForm = () => {
             setShowTwoFactor(true);
           }
         })
-        .catch(() => setError("Something went wrong!"));
+        .catch((error) => {
+          setError("Something went wrong!")
+          console.log(error)
+        });
     });
   };
 

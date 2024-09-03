@@ -23,6 +23,7 @@ export const loginUser = async (
   const { email, password, code } = validation.data;
 
   const existingUser = await getUserByEmail(email);
+  console.log(existingUser, "existingUser");
 
   if (!existingUser || !existingUser.email || !existingUser.password) {
     return { error: "Email does not exists!" };
