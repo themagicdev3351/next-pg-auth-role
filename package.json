@@ -35,6 +35,7 @@
     "react-spinners": "^0.13.8",
     "resend": "^3.1.0",
     "sonner": "^1.4.0",
+    "swiper": "^11.1.12",
     "tailwind-merge": "^2.2.1",
     "tailwindcss-animate": "^1.0.7",
     "uuid": "^9.0.1",
