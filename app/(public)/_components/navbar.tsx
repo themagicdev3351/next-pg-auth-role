@@ -18,7 +18,7 @@ const Navbar = () => {
 
       <div className=" flex justify-between items-center gap-x-3 w-[100%]">
 
-        <Link href="/settings">
+        <Link href="/profile">
           <Avatar>
             <AvatarImage />
             <AvatarFallback className="bg-gradient">
@@ -28,7 +28,7 @@ const Navbar = () => {
         </Link>
 
         <Link href="/">
-          <img className="w-[50px]" src={'/images/logo.png'} />
+          <img className="w-[60px]" src={'/images/logo.png'} />
         </Link>
 
         <DropdownMenu>

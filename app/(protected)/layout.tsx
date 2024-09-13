@@ -1,3 +1,4 @@
+import FooterNav from "./_components/footerNav";
 import Navbar from "./_components/navbar";
 
 interface ProtectedLayoutProps {
@@ -6,8 +7,9 @@ interface ProtectedLayoutProps {
 const ProtectedLayout = ({ children }: ProtectedLayoutProps) => {
   return (
     <div className=" bg-gradient h-full w-full flex flex-col gap-y-10 items-center justify-center">
-      {/* <Navbar /> */}
+      <Navbar />
       {children}
+      {/* <FooterNav /> */}
     </div>
   );
 };
