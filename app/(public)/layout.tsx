@@ -6,7 +6,7 @@ interface ProtectedLayoutProps {
 const PublicedLayout = ({ children }: ProtectedLayoutProps) => {
   return (
     <div className=" bg-gradient h-full w-full flex flex-col gap-y-10 items-center justify-center">
-      {/* <Navbar /> */}
+      <Navbar />
       {children}
     </div>
   );
