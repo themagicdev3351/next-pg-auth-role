@@ -14,7 +14,7 @@ import {
 const Navbar = () => {
   const pathname = usePathname();
   return (
-    <nav className="bg-black flex justify-between items-center p-0 px-3 top-0 left-0 right-0 fixed w-100 shadow-sm h-[50px] overflow-hidden">
+    <nav className="bg-gray-800 text-white p-2 flex justify-between items-center shadow-md">
 
       <div className=" flex justify-between items-center gap-x-3 w-[100%]">
 

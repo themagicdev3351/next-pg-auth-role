@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 
 // Swiper components, modules and styles
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
@@ -10,32 +10,41 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 
 
-interface Slide {
-    id: number; 
-    image: string; 
-} 
-
-interface DemoSliderProps {
-    data: Slide[];
-}
-
-const DemoSlider: React.FC<DemoSliderProps> = ({ data }) => {
+const DemoSlider = () => {
+    const [data, setData] = useState([
+        {
+            "id": 1,
+            "image": "/images/slider/banner1.jpg"
+        },
+        {
+            "id": 2,
+            "image": "/images/slider/banner2.png"
+        },
+        {
+            "id": 3,
+            "image": "/images/slider/banner3.png"
+        },
+        {
+            "id": 4,
+            "image": "/images/slider/banner4.jpg"
+        }
+    ])
     return (
-        <section className="w-full h-[500px]">
+        <section className="w-full h-full">
             <Swiper
                 pagination={{ type: "bullets", clickable: true }}
                 autoplay={{ delay: 3000 }}
                 loop={true}
                 modules={[Autoplay, Navigation, Pagination]}
-                className="h-[500px]"
+                className="h-[100vh]"
             >
                 {data.map(({ id, image }) => (
                     <SwiperSlide key={id}>
-                        <div
-                            className="h-full w-full absolute left-0 top-0"
+                        <div 
                             style={{
                                 background: `url(${image}) center center / cover scroll no-repeat`,
                             }}
+                            className="h-[100vh]"
                         ></div>
                     </SwiperSlide>
                 ))}
