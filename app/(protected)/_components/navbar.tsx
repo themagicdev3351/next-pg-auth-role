@@ -13,7 +13,7 @@ const Navbar = () => {
     <nav className="bg-black flex justify-between items-center p-4 top-0 left-0 right-0 fixed w-100 shadow-sm">
 
       <div className=" flex justify-between items-center gap-x-3 w-[100%]">
-        <Link href="/settings">
+        <Link href="/profile">
           <Avatar>
             <AvatarImage />
             <AvatarFallback className="bg-gradient">
@@ -21,7 +21,7 @@ const Navbar = () => {
             </AvatarFallback>
           </Avatar>
         </Link>
-        <Button
+        {/* <Button
           variant={pathname === "/server" ? "default" : "outline"}
           asChild
         >
@@ -41,7 +41,7 @@ const Navbar = () => {
           asChild
         >
           <Link href="/settings">Settings</Link>
-        </Button>
+        </Button> */}
         <UserButton />
       </div>
     </nav>

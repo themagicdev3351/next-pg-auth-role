@@ -3,8 +3,6 @@ import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { Poppins } from "next/font/google";
 
-import DemoSlider from "./_components/DemoSlider";
-import dataSlider from "./_data/slider-data.json";
 
 
 const poppins = Poppins({
@@ -14,8 +12,8 @@ const poppins = Poppins({
 
 export default function Home() {
   return (
-    <div className={`space-y-6 text-center ${poppins.className}`}>
-      <DemoSlider data={dataSlider} />
+    <div className={`space-y-6 py-5 text-center ${poppins.className}`}>
+      here is home page
       <div>
         <LoginButton mode="modal" asChild>
           <Button variant="secondary" size="lg" className="text-lg">

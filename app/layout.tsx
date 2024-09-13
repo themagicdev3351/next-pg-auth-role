@@ -3,9 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { auth } from "@/auth";
 import { SessionProvider } from "next-auth/react";
-import { Toaster } from "@/components/ui/sonner";
-import Navbar from "./(public)/_components/navbar";
-import FooterNav from "./(public)/_components/footerNav";
+import { Toaster } from "@/components/ui/sonner"; 
 import { cn } from "@/lib/utils";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -25,17 +23,15 @@ export default async function RootLayout({
   return (
     <SessionProvider session={session}>
       <html lang="en">
-        <body className={inter.className}>
-          <Navbar />
+        <body className={inter.className}> 
           <Toaster />
           <main
             className={cn(
-              " h-[calc(100vh-100px)] fixed top-[50px] w-full bg-gradient"
+              " h-full w-full bg-gradient"
             )}
           >
             {children}
-          </main>
-          <FooterNav />
+          </main> 
         </body>
       </html>
     </SessionProvider>

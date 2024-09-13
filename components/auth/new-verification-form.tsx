@@ -7,6 +7,7 @@ import { useSearchParams } from "next/navigation";
 import { newVerification } from "@/lib/actions/new-verification.action";
 import { FromError } from "../form-error";
 import { FormSuccess } from "../form-success";
+import { Button } from "../ui/button";
 
 const NewVerificationForm = () => {
   const [error, setError] = useState<string | undefined>();
@@ -15,7 +16,7 @@ const NewVerificationForm = () => {
   const searchParams = useSearchParams();
   const token = searchParams.get("token");
 
-  const onSubmit = useCallback(() => {
+  const onSubmit = () => {
     if (!token) {
       setError("Token not found!");
       return;
@@ -29,11 +30,11 @@ const NewVerificationForm = () => {
       .catch(() => {
         setError("Something went wrong!");
       });
-  }, [token]);
+  }
 
-  useEffect(() => {
-    onSubmit();
-  }, []);
+  // useEffect(() => {
+  //   onSubmit();
+  // }, []);
 
   return (
     <CardWrapper
@@ -42,7 +43,16 @@ const NewVerificationForm = () => {
       backButtonLabel="Back to login"
     >
       <div className=" flex flex-col items-center justify-center w-full">
-        {!success && !error && <BeatLoader />}
+        <Button
+          disabled={success ? true : false}
+          variant={"default"}
+          type="submit"
+          className=" w-full"
+          onClick={() => onSubmit()}
+        >
+          click to verify
+        </Button>
+        {/* {!success && !error && <BeatLoader />} */}
         <FromError message={error} />
         <FormSuccess message={success} />
       </div>
